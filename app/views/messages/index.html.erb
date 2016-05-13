@@ -6,7 +6,8 @@
   <div class="panel-body">
     <% @messages.each do |message| %>
       <span class="label label-info"><%= message.name %></span>
-        <%= message.body %>
+      <span class="label label-info"><%= message.age %>歳</span>
+      <%= message.body %>
         (<%= link_to "edit" , edit_message_path(message) %>
          <%= link_to "destroy" , message , method: :delete, data: { confirm: '削除してもよろしいですか？' } %>
         )
@@ -41,6 +42,13 @@
       <%= f.text_field :name, :class => "form-control" %>
     </div>
   </div>
+  <div class="form-group">
+    <label for="message_age" class="control-label col-md-2">年齢:</label>
+    <div class="col-md-2">
+      <%= f.text_field :age, :class => "form-control" %>
+    </div>
+  </div>
+
   <div class="form-group">
     <label for="message_board" class="col-sm-2 control-label">内容:</label>
     <div class="col-sm-10">
